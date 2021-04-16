@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package apollo;
+
+message Request {
+  string ping = 1;
+}
+
+message Response {
+  string pong = 1;
+}
+
+message SubRequest {
+  string key = 1;
+}
+
+message SubResponse {
+  string data = 1;
+}
+
+
+
+service Apollo {
+  rpc Ping(Request) returns(Response);
+  rpc Subscribe(SubRequest) returns (stream SubResponse);
+}
